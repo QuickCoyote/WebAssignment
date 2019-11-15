@@ -1,0 +1,101 @@
+let url = 'http://pi-jlau/API/';
+
+function SpellsFunc()
+{
+    document.getElementById("Spells").innerHTML = "";
+    var sl1 = document.getElementById("SpellSchool");
+    var sl2 = document.getElementById("SpellLevel");
+    var sl3 = document.getElementById("CastingTime");
+    
+    var spellSchool = sl1.options[sl1.selectedIndex].value;
+    var spellLevel = sl2.options[sl2.selectedIndex].value;
+    var castingTime = sl3.options[sl3.selectedIndex].value;
+
+    if(spellSchool == "ChooseSchool")
+    {
+        spellSchool = "school";
+    }
+    if(spellLevel == "ChooseLevel")
+    {
+        spellLevel = "level";
+    }
+    if(castingTime == "ChooseTime")
+    {
+        castingTime = "castingtime";
+    }
+
+    url += '?SpellSchool=' + spellSchool + '&SpellLevel=' + spellLevel + '&CastingTime=' + castingTime;
+    console.log(url);
+    fetch(url)
+        .then(response => response.json())
+            .then(data => {
+                for($i = 0; $i < data["spells"].length; $i++)
+                {
+                    document.getElementById("Spells").innerHTML += '<div class="Spell"><h2>' + data["spells"][$i].Name + '</h2>' +
+                    '<p>' + "Level: " + data["spells"][$i].Level + '</p>' +
+                    '<br/>' +
+                    '<p>' + "School: " + data["spells"][$i].School + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Casting Time: " + data["spells"][$i].Casting_Time + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Spell Range: " + data["spells"][$i].Spell_Range + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Components: " + data["spells"][$i].Components + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Duration: " + data["spells"][$i].Duration + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Attack/Save: " + data["spells"][$i].Attack_Save + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Damage/Effect: " + data["spells"][$i].Damage_Effect + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Description: " + data["spells"][$i].Description + '</p>' +
+                    '<br/></div>';
+                }
+            })
+            .catch(e => console.log(e))
+    url = 'http://localhost/API/';
+    console.log(document.getElementById("Spells"));
+}
+
+function ClassesFunc()
+{
+    document.getElementById("Classes").innerHTML = "";
+    var sl1 = document.getElementById("ClassName");
+    
+    var className = sl1.options[sl1.selectedIndex].value;
+
+    if(className == "Name")
+    {
+        className = "Name";
+    }
+
+    url += '?Name=' + className;
+    console.log(url);
+    fetch(url)
+        .then(response => response.json())
+            .then(data => {
+                for($i = 0; $i < data["classes"].length; $i++)
+                {
+                    document.getElementById("Classes").innerHTML += '<div class="Spell"><h2>' + data["classes"][$i].Name + '</h2>' +
+                    '<p>' + "Hit Dice: " + data["spells"][$i].Level + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Hit Points At First: " + data["spells"][$i].School + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Hit Points At Higher: " + data["spells"][$i].Casting_Time + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Armor Proficiencies: " + data["spells"][$i].Spell_Range + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Weapon Proficiencies: " + data["spells"][$i].Components + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Tool Proficiencies: " + data["spells"][$i].Duration + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Saving Throw Proficiencies: " + data["spells"][$i].Attack_Save + '</p>' +
+                    '<br/>' +
+                    '<p>' + "Skills Proficiencies: " + data["spells"][$i].Damage_Effect + '</p>' +
+                    '<br/></div>';
+                }
+            })
+            .catch(e => console.log(e))
+    url = 'http://localhost/API/';
+    console.log(document.getElementById("Classes"));
+}
