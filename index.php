@@ -13,12 +13,12 @@
                 <a href='index.php'>HOME</a>
             </li> 
             <li>
-                <a href='classes.php'>CLASSES</a>
+                <a href='pages/classes.php'>CLASSES</a>
             </li> 
             <li>
-                <a href='spells.php'>SPELLS</a>
+                <a href='pages/spells.php'>SPELLS</a>
             </li> 
         </ul>
-</div>
+    </div>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <div class='navbar'>
         <ul>
             <li>
-                <a href='index.php'>HOME</a>
+                <a href='../index.php'>HOME</a>
             </li> 
             <li>
                 <a href='classes.php'>CLASSES</a>
