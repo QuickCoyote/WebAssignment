@@ -99,3 +99,28 @@ function ClassesFunc()
     url = 'http://localhost/API/';
     console.log(document.getElementById("Classes"));
 }
+
+function AddClass($name, $hitDice, $hitPoints, $hitPointsHigher, $armorProf, $wepProf, $toolProf, $saveThrowProf, $skillProf)
+{
+    $host = "localhost";
+    $username = "jlau";
+    $password = "banana";
+    $db_name = "dnd"; //database name
+
+    //connect to mysql server
+    $conn = new mysqli($host, $username, $password, $db_name);
+    // Check connection
+    if ($conn.connect_error) {
+        die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "INSERT INTO classes (Name, HitDice, HitPointsAtFirst, HitPointsAtHigher, ArmorProf, WeaponProf, ToolProf, SavingThrowProf, SkillsProf) VALUES ("+$name+","+$hitDice+","+ $hitPoints+","+ $hitPointsHigher+","+ $armorProf+","+ $wepProf+","+ $toolProf+","+ $saveThrowProf+","+ $skillProf+")";
+
+    if ($conn.query($sql) === TRUE) {
+        console.log("New record created successfully");
+    } else {
+        console.log("Error: " + $sql + "<br>" + $conn.error);
+    }
+
+$conn.close();
+}
