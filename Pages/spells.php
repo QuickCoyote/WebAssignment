@@ -31,5 +31,7 @@
                 </div>
             </div>
     </div>
+
+    <h1>SPELLS PAGE</h1>
 </body>
 </html>

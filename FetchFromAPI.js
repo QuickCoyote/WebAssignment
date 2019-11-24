@@ -100,8 +100,18 @@ function ClassesFunc()
     console.log(document.getElementById("Classes"));
 }
 
-function AddClass($name, $hitDice, $hitPoints, $hitPointsHigher, $armorProf, $wepProf, $toolProf, $saveThrowProf, $skillProf)
+function AddClass()
 {
+    var className = document.getElementById("ClassName");
+    var hitDice = document.getElementById("HitDice");
+    var hitPoints = document.getElementById("HitPoints");
+    var hitPointsHigher = document.getElementById("HitPointsHigher");
+    var armorProf = document.getElementById("ArmorProf");
+    var weaponProf = document.getElementById("WeaponProf");
+    var toolProf = document.getElementById("ToolProf");
+    var saveThrowProf = document.getElementById("SaveThrowProf");
+    var skillProf = document.getElementById("SkillProf");
+
     $host = "localhost";
     $username = "jlau";
     $password = "banana";
@@ -114,7 +124,7 @@ function AddClass($name, $hitDice, $hitPoints, $hitPointsHigher, $armorProf, $we
         die("Connection failed: " . $conn.connect_error);
     }
 
-    $sql = "INSERT INTO classes (Name, HitDice, HitPointsAtFirst, HitPointsAtHigher, ArmorProf, WeaponProf, ToolProf, SavingThrowProf, SkillsProf) VALUES ("+$name+","+$hitDice+","+ $hitPoints+","+ $hitPointsHigher+","+ $armorProf+","+ $wepProf+","+ $toolProf+","+ $saveThrowProf+","+ $skillProf+")";
+    $sql = "INSERT INTO classes (Name, HitDice, HitPointsAtFirst, HitPointsAtHigher, ArmorProf, WeaponProf, ToolProf, SavingThrowProf, SkillsProf) VALUES ("+className+","+hitDice+","+ hitPoints+","+ hitPointsHigher+","+ armorProf+","+ weaponProf+","+ toolProf+","+ saveThrowProf+","+ skillProf+")";
 
     if ($conn.query($sql) === TRUE) {
         console.log("New record created successfully");
@@ -122,5 +132,5 @@ function AddClass($name, $hitDice, $hitPoints, $hitPointsHigher, $armorProf, $we
         console.log("Error: " + $sql + "<br>" + $conn.error);
     }
 
-$conn.close();
+    $conn.close();
 }

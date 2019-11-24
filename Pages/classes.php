@@ -31,5 +31,7 @@
                 </div>
             </div>
     </div>
+
+    <h1>CLASSES PAGE</h1>
 </body>
 </html>
