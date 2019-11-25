@@ -134,3 +134,99 @@ function AddClass()
 
     $conn.close();
 }
+
+function AddSpell()
+{
+    var className = document.getElementById("ClassName");
+    var hitDice = document.getElementById("HitDice");
+    var hitPoints = document.getElementById("HitPoints");
+    var hitPointsHigher = document.getElementById("HitPointsHigher");
+    var armorProf = document.getElementById("ArmorProf");
+    var weaponProf = document.getElementById("WeaponProf");
+    var toolProf = document.getElementById("ToolProf");
+    var saveThrowProf = document.getElementById("SaveThrowProf");
+    var skillProf = document.getElementById("SkillProf");
+
+    $host = "localhost";
+    $username = "jlau";
+    $password = "banana";
+    $db_name = "dnd"; //database name
+
+    //connect to mysql server
+    $conn = new mysqli($host, $username, $password, $db_name);
+    // Check connection
+    if ($conn.connect_error) {
+        die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "INSERT INTO classes (Name, HitDice, HitPointsAtFirst, HitPointsAtHigher, ArmorProf, WeaponProf, ToolProf, SavingThrowProf, SkillsProf) VALUES ("+className+","+hitDice+","+ hitPoints+","+ hitPointsHigher+","+ armorProf+","+ weaponProf+","+ toolProf+","+ saveThrowProf+","+ skillProf+")";
+
+    if ($conn.query($sql) === TRUE) {
+        console.log("New record created successfully");
+    } else {
+        console.log("Error: " + $sql + "<br>" + $conn.error);
+    }
+
+    $conn.close();
+}
+
+function AddPage()
+{
+    var url = "";
+    var pageInfo = "";
+
+    url = Document.url + Document.getElementById("newURL");
+    pageInfo = Document.getElementById("");
+
+    $host = "localhost";
+    $username = "jlau";
+    $password = "banana";
+    $db_name = "website"; //database name
+
+    //connect to mysql server
+    $conn = new mysqli($host, $username, $password, $db_name);
+    // Check connection
+    if ($conn.connect_error) {
+        die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "INSERT INTO pages (url, page_info) VALUES ("+url+","+pageInfo+")";
+
+    if ($conn.query($sql) === TRUE) {
+        console.log("New record created successfully");
+    } else {
+        console.log("Error: " + $sql + "<br>" + $conn.error);
+    }
+
+    $conn.close();
+}
+
+function RemovePage()
+{
+    var url = "";
+    url = Document.url;
+
+    $host = "localhost";
+    $username = "jlau";
+    $password = "banana";
+    $db_name = "website"; //database name
+
+    //connect to mysql server
+    $conn = new mysqli($host, $username, $password, $db_name);
+    // Check connection
+    if ($conn.connect_error) {
+        die("Connection failed: " . $conn.connect_error);
+    }
+
+    $sql = "DELETE FROM pages WHERE url = "+url;
+
+    if ($conn.query($sql) === TRUE) {
+        console.log("New record created successfully");
+    } else {
+        console.log("Error: " + $sql + "<br>" + $conn.error);
+    }
+
+    $conn.close();
+
+    window.location.href = "index.php";
+}
