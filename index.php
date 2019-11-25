@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href='style.css' rel='stylesheet' />
+    <link id='styleLink' href='style.css' rel='stylesheet' />
 </head>
 <body>
 <div class='navbar'>
@@ -31,5 +31,16 @@
                 </div>
             </div>
     </div>
+<div>
+Themes:
+<div id='red' onclick='cssToRed()'>
+Red
+</div>
+<div id='brick' onclick='cssToBrick()'>
+Brick
+</div>
+<div id='neutral' onclick='cssToNeutral()'>
+Neutral
+</div>
 </body>
 </html>
