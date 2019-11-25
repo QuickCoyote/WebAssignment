@@ -119,6 +119,7 @@ function AddClass()
 
     //connect to mysql server
     $conn = new mysqli($host, $username, $password, $db_name);
+    
     // Check connection
     if ($conn.connect_error) {
         die("Connection failed: " . $conn.connect_error);
@@ -175,13 +176,14 @@ function AddPage()
     var url = "";
     var pageInfo = "";
 
-    url = Document.url + Document.getElementById("newURL");
-    pageInfo = Document.getElementById("");
+    url = document.url + document.getElementById("pageTitle");
+    pageInfo = document.getElementById("pageContent");
+    imageLink = document.getElementById("imageLink");
 
     $host = "localhost";
     $username = "jlau";
     $password = "banana";
-    $db_name = "website"; //database name
+    $db_name = "website";
 
     //connect to mysql server
     $conn = new mysqli($host, $username, $password, $db_name);
@@ -199,6 +201,8 @@ function AddPage()
     }
 
     $conn.close();
+
+    document.location.href = '/WebAssignment/index.php';
 }
 
 function RemovePage()

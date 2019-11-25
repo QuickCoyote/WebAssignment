@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href='style.css' rel='stylesheet' />
 </head>
 <body>
 <div>Username:</div>
@@ -18,7 +19,7 @@ session_start();
 if (document.getElementById('username').value == 'admin' && document.getElementById('password').value == 'password') {
         console.log('succesful');
         <?php $_SESSION['admin'] = 'true'; ?>
-        document.location.href = '/solutionstack/WebAssignment/pages/edit.php';
+        document.location.href = '/WebAssignment/edit.php';
     } else {
         console.log('fail');
         <?php $_SESSION['admin'] = 'false'; ?>
