@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +11,18 @@
 </head>
 <body>
 <div>Username:</div>
-<input type="text">
+<input id='username' type="text">
 <div>Password:</div>
-<input type="text">
-<button onclick='login()'>Submit</button>
+<input id='password' type="password">
+<button onclick="    
+if (document.getElementById('username').value == 'admin' && document.getElementById('password').value == 'password') {
+        console.log('succesful');
+        <?php $_SESSION['admin'] = 'true'; ?>
+        document.location.href = '/solutionstack/WebAssignment/pages/edit.php';
+    } else {
+        console.log('fail');
+        <?php $_SESSION['admin'] = 'false'; ?>
+    }
+    ">Submit</button>
 </body>
 </html>
