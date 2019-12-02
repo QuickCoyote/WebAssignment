@@ -9,7 +9,6 @@
 </head>
 <body>
     <?php
-
         function console_log($output, $with_script_tags = true) 
         {
             $js_code = 'console.log('.json_encode($output, JSON_HEX_TAG).');';
@@ -68,6 +67,10 @@
         }
 
         $conn->close();
+    ?>
+
+    <?php
+        include  "functions.php";
     ?>
 </body>
 </html>
